@@ -2,6 +2,7 @@ name: dispatch a remote workflow on push
 
 on:
   push:
+  workflow_dispatch:
 
 jobs:
   dispatch:
