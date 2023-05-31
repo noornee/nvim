@@ -1,0 +1,19 @@
+name: dispatch a remote workflow on push
+
+on:
+  push:
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: dispatch remote workflow
+      run: |
+        curl -L \
+          -X POST \
+          -H "Accept: application/vnd.github+json" \
+          -H "Authorization: Bearer ${{secrets.PAT_TOKEN}}" \
+          https://api.github.com/repos/noornee/dotfiles/actions/workflows/58810568/dispatches \
+          -d '{"ref":"main"}'
