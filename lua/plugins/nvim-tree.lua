@@ -1,5 +1,6 @@
 local M = {
 	"nvim-tree/nvim-tree.lua",
+	-- event = "VeryLazy",
 	keys = {
 		{ "<C-t>", "<cmd>NvimTreeToggle<CR>", desc = "toggle NvimTree" },
 		{ "<F3>", "<cmd>NvimTreeToggle<CR>", desc = "toggle NvimTree" },
