@@ -13,7 +13,5 @@ set.incsearch = true
 set.cursorline = true
 set.termguicolors = true
 
-vim.cmd([[let g:netrw_fastbrowse = 0]]) -- this closes netrw after entering a buffer. [e.g. executing `nvim .` in the current dir and opening a file]
-
 vim.keymap.set("n", " ", "<Nop>", { silent = true, remap = false })
 vim.g.mapleader = " "
