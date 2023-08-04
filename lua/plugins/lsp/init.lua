@@ -2,7 +2,8 @@ local M = {}
 local Util = require("core.utils")
 local plugins = {}
 
-local files = Util.scandir("lua/plugins/lsp", "init*") -- ignores init.lua
+local base = vim.fn.stdpath("config") -- default: $XDG_CONFIG_HOME/nvim (i.e. `.config/nvim`)
+local files = Util.scandir(base .. "/lua/plugins/lsp", "init*") -- ignores init.lua
 
 for _, v in ipairs(files) do
 	local module = string.sub(v, 1, #v - #".lua") -- e.g. `lsp_lines.lua`  ==> `lsp_lines`
