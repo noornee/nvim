@@ -4,7 +4,13 @@ local M = {
 
 M.config = function()
 	local color = require("colorizer")
-	color.setup()
+
+	color.setup({
+		"html",
+		"css",
+		"yaml",
+		go = { mode = "foreground" },
+	})
 end
 
 return M

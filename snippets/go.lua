@@ -1,38 +1,32 @@
-local ls = require("luasnip")
+local env = LUASNIP_ENV -- global variable declared in `lua/plugins/luasnip.lua`
+if env == nil then
+	return
+end
 
-local s = ls.s -- s(<trigger>, <nodes>)
-local i = ls.insert_node -- insert node
-local fmt = require("luasnip.extras.fmt").fmt -- format node
-
-local snippets, autosnippets = {}, {}
-
-local main_function = s(
-	{ trig = "mainf" },
-	fmt(
-		[[
+return {
+	env.s(
+		{ trig = "mainf", snippetType = "autosnippet" },
+		env.fmt(
+			[[
 		package main
 
 		func main() {{
 			{}
 		}}
 		]],
-		{ i(1, "") }
-	)
-)
+			{ env.i(1, "") }
+		)
+	),
 
-local check_err = s(
-	{ trig = "cerr" },
-	fmt(
-		[[
+	env.s(
+		{ trig = "cerr" },
+		env.fmt(
+			[[
 		if err != nil {{
 			log.Println({})
 		}}
 		]],
-		{ i(1, "err") }
-	)
-)
-
-table.insert(autosnippets, main_function)
-table.insert(autosnippets, check_err)
-
-return snippets, autosnippets
+			{ env.i(1, "err") }
+		)
+	),
+}
