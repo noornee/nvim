@@ -4,6 +4,17 @@ if env == nil then
 end
 
 return {
-	env.s("date", env.p(os.date, "%Y-%m-%d")),
-	env.s("time", env.p(os.date, "%H:%M")),
+	env.s(
+		"dt",
+		env.fmt(
+			[[
+	Date: {date}
+	Time: {time}
+	]],
+			{
+				date = env.p(os.date, "%Y-%m-%d"),
+				time = env.p(os.date, "%H:%M"),
+			}
+		)
+	),
 }
