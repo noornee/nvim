@@ -15,6 +15,31 @@ M.config = function()
 	local cmp = require("cmp")
 	vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
+	local kind_icons = {
+		-- https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#basic-customisations
+		Text = " ",
+		Method = "󰆧",
+		Function = "ƒ ",
+		Constructor = " ",
+		Field = "󰜢 ",
+		Variable = " ",
+		Constant = " ",
+		Class = " ",
+		Interface = "󰜰 ",
+		Struct = " ",
+		Enum = "了 ",
+		EnumMember = " ",
+		Module = "",
+		Property = " ",
+		Unit = " ",
+		Value = "󰎠 ",
+		Keyword = "󰌆 ",
+		Snippet = " ",
+		File = " ",
+		Folder = " ",
+		Color = " ",
+	}
+
 	cmp.setup({
 		snippet = {
 			expand = function(args)
@@ -36,11 +61,28 @@ M.config = function()
 			{ name = "nvim_lsp" },
 			{ name = "nvim_lua" },
 			{ name = "luasnip" }, -- For luasnip users.
-			-- { name = "orgmode" },
 		}, {
 			{ name = "buffer" },
 			{ name = "path" },
+		}, {
+			{ name = "neorg" },
 		}),
+
+		formatting = {
+			format = function(entry, vim_item)
+				-- Kind icons
+				vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+				-- Source
+				vim_item.menu = ({
+					buffer = "[Buffer]",
+					nvim_lsp = "[LSP]",
+					luasnip = "[LuaSnip]",
+					nvim_lua = "[NvimAPI]",
+					path = "[Path]",
+				})[entry.source.name]
+				return vim_item
+			end,
+		},
 	})
 
 	cmp.setup.cmdline(":", {
