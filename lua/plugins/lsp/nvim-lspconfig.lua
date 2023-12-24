@@ -26,7 +26,23 @@ M.config = function()
 		vim.keymap.set("n", "<space>df", vim.diagnostic.goto_next, bufopts)
 	end
 
-	local servers = { "gopls", "lua_ls", "pyright", "html", "tsserver", "rust_analyzer" }
+	local servers = {
+		"gopls",
+		"lua_ls",
+		"pyright",
+		"html",
+		"tsserver",
+		"rust_analyzer",
+	}
+
+	-- custom settings
+	local gopls_settings = {
+		analyses = {
+			unusedparams = true,
+		},
+	}
+
+	-- setup servers
 	for _, lsp in pairs(servers) do
 		lspconfig[lsp].setup({
 			capabilities = capabilities,
@@ -34,9 +50,11 @@ M.config = function()
 			settings = {
 				Lua = {
 					diagnostics = {
-						globals = { "vim" },
+						globals = { "vim", "LUASNIP_ENV" },
+						-- LUASNIP_ENV is a custom variable declared in `lua/plugins/luasnip.lua`
 					},
 				},
+				gopls = gopls_settings,
 			},
 		})
 	end

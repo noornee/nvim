@@ -1,14 +1,15 @@
 local M = {
 	"lukas-reineke/indent-blankline.nvim",
+	main = "ibl",
 	event = "BufReadPost",
 }
 
 M.config = function()
-	local blankline = require("indent_blankline")
-
-	blankline.setup({
-		show_current_context = true,
-		-- show_current_context_start = true,
+	require("ibl").setup({
+		indent = {
+			char = "│",
+			-- char = "╏",
+		},
 	})
 end
 

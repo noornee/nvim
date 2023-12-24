@@ -9,6 +9,7 @@ M.config = function()
 		"html",
 		"css",
 		"yaml",
+		"lua",
 		go = { mode = "foreground" },
 	})
 end
