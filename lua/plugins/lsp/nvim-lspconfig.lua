@@ -33,6 +33,7 @@ M.config = function()
 		"html",
 		"tsserver",
 		"rust_analyzer",
+		"nil_ls",
 	}
 
 	-- custom settings
