@@ -1,3 +1,4 @@
+local lsp = require("plugins.lsp.nvim-lspconfig")
 local opts = { noremap = true, silent = true }
 
 vim.keymap.set("n", " ", "<Nop>", opts)
@@ -21,3 +22,7 @@ vim.keymap.set("v", ">", ">gv", opts)
 -- paste over currently selected text without yanking it
 vim.keymap.set("v", "p", '"_dp')
 vim.keymap.set("v", "P", '"_dP')
+
+vim.keymap.set("n", "<leader>lh", function()
+	lsp.toggle_inlay_hints()
+end)
