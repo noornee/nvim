@@ -7,7 +7,18 @@ local M = {
 M.config = function()
 	require("nvim-treesitter.configs").setup({
 		-- A list of parser names, or "all"
-		ensure_installed = { "c", "lua", "go", "bash", "python", "html", "javascript", "json" },
+		ensure_installed = {
+			"c",
+			"lua",
+			"go",
+			"bash",
+			"python",
+			"html",
+			"javascript",
+			"json",
+			"nix",
+			"rust",
+		},
 		sync_install = false,
 		highlight = {
 			enable = true,

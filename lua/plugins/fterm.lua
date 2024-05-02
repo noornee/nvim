@@ -8,14 +8,14 @@ local M = {
 
 M.config = function()
 	local fterm = require("FTerm")
-
 	fterm.setup({
-		border = "double",
+		-- border = "double",
 		dimensions = {
 			height = 0.9,
 			width = 0.9,
 		},
 	})
+	vim.api.nvim_set_hl(0, "FloatBorder", { fg = "grey", bg = "none" })
 end
 
 return M
