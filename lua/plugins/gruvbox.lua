@@ -24,9 +24,9 @@ M.config = function()
 		inverse = true, -- invert background for search, diffs, statuslines and errors
 		contrast = "hard", -- can be "hard", "soft" or empty string
 		palette_overrides = {},
-		overrides = {
-			["Delimiter"] = { link = "GruvboxOrange" },
-		},
+		-- overrides = {
+		-- 	["Delimiter"] = { link = "GruvboxOrange" },
+		-- },
 		dim_inactive = false,
 		transparent_mode = false,
 	})
