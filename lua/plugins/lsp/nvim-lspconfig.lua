@@ -24,11 +24,6 @@ M.config = function()
 			vim.lsp.buf.format({ async = true })
 		end, bufopts)
 		vim.keymap.set("n", "<space>df", vim.diagnostic.goto_next, bufopts)
-
-		-- if client.supports_method("textDocument/inlayHint") then
-		-- 	print("supports inlay hint")
-		-- 	vim.lsp.inlay_hint.enable(bufnr, true)
-		-- end
 	end
 
 	local servers = {
@@ -36,7 +31,7 @@ M.config = function()
 		"lua_ls",
 		"pyright",
 		"html",
-		"tsserver",
+		"ts_ls",
 		"rust_analyzer",
 		"nil_ls",
 	}

@@ -11,8 +11,8 @@ M.config = function()
 	fterm.setup({
 		-- border = "double",
 		dimensions = {
-			height = 0.9,
-			width = 0.9,
+			height = 0.98,
+			width = 0.98,
 		},
 	})
 	vim.api.nvim_set_hl(0, "FloatBorder", { fg = "grey", bg = "none" })

@@ -18,6 +18,7 @@ M.config = function()
 			"json",
 			"nix",
 			"rust",
+			"norg",
 		},
 		sync_install = false,
 		highlight = {

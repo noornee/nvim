@@ -8,7 +8,12 @@ local M = {
 M.config = function()
 	require("lualine").setup({
 		sections = {
-			lualine_c = { { "filename", path = 1 } },
+			lualine_c = {
+				{
+					"filename",
+					path = 1,
+				},
+			},
 		},
 	})
 end

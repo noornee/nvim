@@ -18,7 +18,8 @@ M.config = function()
 			formatting.gofumpt,
 			formatting.black,
 			formatting.prettier,
-			formatting.nixpkgs_fmt,
+			formatting.nixfmt,
+			formatting.sql_formatter,
 
 			-- diagnostics
 			diagnostics.golangci_lint,
