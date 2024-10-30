@@ -21,6 +21,13 @@ M.config = function()
 				name = "GoSum",
 			},
 		},
+		override_by_extension = {
+			["graphqls"] = {
+				icon = "󰡷 ",
+				color = "#A020F0",
+				name = "Graphql",
+			},
+		},
 	})
 end
 
