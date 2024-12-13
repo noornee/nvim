@@ -1,5 +1,8 @@
 local M = {
 	"nvim-tree/nvim-tree.lua",
+	dependencies = {
+		"nvim-tree/nvim-web-devicons",
+	},
 	lazy = false,
 	keys = {
 		{ "<C-t>", "<cmd>NvimTreeToggle<CR>", desc = "toggle NvimTree" },
@@ -30,6 +33,9 @@ M.config = function()
 
 	nvim_tree.setup({
 		on_attach = my_on_attach,
+		view = {
+			width = 35,
+		},
 	})
 end
 
