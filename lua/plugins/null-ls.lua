@@ -13,9 +13,30 @@ M.config = function()
 		debug = false,
 		sources = {
 			-- formatting
+
+			--lua
 			formatting.stylua,
+
+			-- go
 			formatting.goimports,
 			formatting.gofumpt,
+			-- null_ls.register({
+			-- 	name = "gci",
+			-- 	method = null_ls.methods.FORMATTING,
+			-- 	filetypes = { "go" },
+			-- 	generator = null_ls.generator({
+			-- 		command = "gci",
+			-- 		args = function(params)
+			-- 			return { "print", params.bufname }
+			-- 		end,
+			-- 		to_stdin = false,
+			-- 		on_output = function(_, done)
+			-- 			done()
+			-- 			return nil
+			-- 		end,
+			-- 	}),
+			-- }),
+
 			formatting.black,
 			formatting.prettier,
 			formatting.nixfmt,
