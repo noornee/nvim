@@ -29,12 +29,12 @@ M.config = function()
 	-- 	end
 	-- end)
 
-	vim.keymap.set({ "i", "s" }, "<a-k>", function()
+	vim.keymap.set({ "i", "s" }, "<a-l>", function()
 		if ls.jumpable(1) then
 			ls.jump(1)
 		end
 	end)
-	vim.keymap.set({ "i", "s" }, "<a-j>", function()
+	vim.keymap.set({ "i", "s" }, "<a-h>", function()
 		if ls.jumpable(-1) then
 			ls.jump(-1)
 		end
