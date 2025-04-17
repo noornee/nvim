@@ -6,7 +6,7 @@ return {
 	settings = {
 		gopls = {
 			gofumpt = true,
-			usePlaceholders = true,
+			-- usePlaceholders = true,
 			analyses = {
 				unusedparams = true,
 			},
