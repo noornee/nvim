@@ -4,7 +4,10 @@ local M = {
 	opts = {
 		keymap = { preset = "enter" },
 		snippets = { preset = "luasnip" },
-		fuzzy = { implementation = "prefer_rust_with_warning" },
+		fuzzy = {
+			implementation = "prefer_rust_with_warning",
+			sorts = { "sort_text", "score" },
+		},
 		sources = {
 			default = {
 				"lsp",
