@@ -8,6 +8,21 @@ local M = {
 			implementation = "prefer_rust_with_warning",
 			sorts = { "sort_text", "score" },
 		},
+		completion = {
+			documentation = { auto_show = true },
+			menu = {
+				draw = {
+					columns = { { "label" }, { "kind_icon", "kind" }, { "source_name" } },
+					components = {
+						source_name = {
+							text = function(ctx)
+								return "[" .. ctx.source_name .. "]" -- e.g. [LSP]
+							end,
+						},
+					},
+				},
+			},
+		},
 		sources = {
 			default = {
 				"lsp",
@@ -17,6 +32,10 @@ local M = {
 			},
 		},
 		cmdline = {
+			keymap = {
+				["<Up>"] = { "select_prev", "fallback" },
+				["<Down>"] = { "select_next", "fallback" },
+			},
 			completion = { menu = { auto_show = true } },
 			sources = function()
 				local type = vim.fn.getcmdtype()
@@ -24,7 +43,7 @@ local M = {
 					return { "buffer" }
 				end
 				if type == ":" or type == "@" then
-					return { "cmdline" }
+					return { "path", "cmdline" }
 				end
 				return {}
 			end,
@@ -34,7 +53,7 @@ local M = {
 			kind_icons = {
 				Text = "󰉿",
 				Method = "󰊕",
-				Function = "ƒ ",
+				Function = "ƒ",
 				Constructor = "󰒓",
 
 				Field = "󰜢",
@@ -52,7 +71,7 @@ local M = {
 				EnumMember = "",
 
 				Keyword = "󰻾",
-				Constant = "",
+				Constant = "󰏿",
 
 				Snippet = "󱄽",
 				Color = "󰏘",
