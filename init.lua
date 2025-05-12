@@ -2,6 +2,7 @@ require("core.options")
 require("core.keymaps")
 require("core.autocmd")
 require("core.lazy")
+require("core.diagnostics")
 
 vim.lsp.enable({
 	"gopls",
