@@ -6,10 +6,7 @@ return {
 	settings = {
 		gopls = {
 			gofumpt = true,
-			-- usePlaceholders = true,
-			analyses = {
-				unusedparams = true,
-			},
+			staticcheck = true,
 			hints = {
 				assignVariableTypes = true,
 				compositeLiteralFields = true,
