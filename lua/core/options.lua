@@ -13,4 +13,6 @@ set.incsearch = true -- As you type, match the currently typed word w/o pressing
 set.cursorline = true
 set.termguicolors = true
 set.colorcolumn = "96"
--- set.textwidth = 96
+
+set.splitright = true
+set.smartcase = true
