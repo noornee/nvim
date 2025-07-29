@@ -21,4 +21,6 @@ M.config = function()
 	})
 end
 
+M = {}
+
 return M
