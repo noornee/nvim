@@ -32,3 +32,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		utils.lsp.custom_mappings(arg.buf)
 	end,
 })
+
+-- Automatically create missing directories before saving .norg files
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*.norg",
+	callback = function(event)
+		local filepath = vim.fn.expand(event.match)
+		local dir = vim.fn.fnamemodify(filepath, ":h")
+		if vim.fn.isdirectory(dir) == 0 then
+			vim.fn.mkdir(dir, "p")
+		end
+	end,
+})

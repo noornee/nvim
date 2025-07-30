@@ -13,17 +13,17 @@ M.config = function()
 		load = {
 			["core.defaults"] = {}, -- Loads default behaviour
 			["core.concealer"] = {
-				-- config = {
-				-- 	icons = {
-				-- 		todo = {
-				-- 			uncertain = {
-				-- 				icon = "",
-				-- 			},
-				-- 		},
-				-- 	},
-				-- },
-			}, -- Adds pretty icons to your documents
-			-- ["core.journal"] = {}, -- Dear diary...
+				config = {
+					icons = {
+						-- todo = { undone = { icon = "x" } },
+					},
+				},
+			},
+			-- ["core.esupports.metagen"] = {
+			-- 	config = {
+			-- 		type = "auto",
+			-- 	},
+			-- },
 			["core.dirman"] = { -- Manages Neorg workspaces
 				config = {
 					workspaces = {
