@@ -60,7 +60,7 @@ M.GoModifyTags = {
 
 vim.api.nvim_create_user_command("GoAddTags", function(opts)
 	M.GoModifyTags.run("add", opts.args, {
-		transform = "camelcase",
+		transform = "snakecase",
 		skip_unexported = false, -- set to true if you want to skip unexported fields
 		override = true, -- replace existing tags
 	})

@@ -1,7 +1,6 @@
 local M = {
 	"nvim-neorg/neorg",
 	lazy = false,
-	version = "9.*",
 	keys = {
 		{ "<leader>Nw", "<cmd>Neorg workspace notes<CR>" },
 	},
