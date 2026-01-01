@@ -2,6 +2,7 @@ local M = {
 	"nvim-treesitter/nvim-treesitter",
 	cmd = "TSUpdate",
 	event = { "BufReadPost", "BufNewFile" },
+	branch = "master",
 }
 
 M.config = function()
