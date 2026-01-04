@@ -34,7 +34,9 @@ M.config = function()
 	nvim_tree.setup({
 		on_attach = my_on_attach,
 		view = {
-			width = 35,
+			width = 40,
+			side = "right",
+			relativenumber = true,
 		},
 	})
 end
