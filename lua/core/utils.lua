@@ -6,8 +6,7 @@ M.lsp = {}
 -- or inside a struct instantiation (composite_literal).
 -- @return boolean true if cursor is in a struct-related context, else false.
 M.is_cursor_in_struct = function()
-	local ts_utils = require("nvim-treesitter.ts_utils")
-	local node = ts_utils.get_node_at_cursor()
+	local node = vim.treesitter.get_node()
 
 	-- Walk up the syntax tree to find the relevant node
 	while node do

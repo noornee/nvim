@@ -6,28 +6,28 @@ local M = {
 }
 
 M.config = function()
-	local languages = {
-		"c",
-		"lua",
+	local ensure_installed = {
+		-- "c",
+		-- "lua",
 		"go",
-		"bash",
-		"python",
-		"html",
-		"javascript",
-		"json",
-		"nix",
-		"rust",
-		"vim",
-		"vimdoc",
-		"http",
-		"sql",
+		-- "bash",
+		-- "python",
+		-- "html",
+		-- "javascript",
+		-- "json",
+		-- "nix",
+		-- "rust",
+		-- "vim",
+		-- "vimdoc",
+		-- "http",
+		-- "sql",
 
-		-- not available at the moment
+		-- unsupported at the moment
 		-- "norg",
 		-- "jsonc",
 	}
 
-	require("nvim-treesitter").install(languages)
+	require("nvim-treesitter").install(ensure_installed)
 
 	-- took inspiration from this https://github.com/MeanderingProgrammer/treesitter-modules.nvim/tree/main?tab=readme-ov-file#do-i-need-this-plugin
 	vim.api.nvim_create_autocmd("FileType", {
@@ -45,8 +45,21 @@ M.config = function()
 			end
 
 			vim.treesitter.start(buf, language)
+
+			-- replicate `indent = { enable = true }`
+			-- vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 		end,
 	})
+
+	-- require("nvim-treesitter.configs").setup({
+	-- 	-- A list of parser names, or "all"
+	-- 	sync_install = false,
+	-- 	highlight = {
+	-- 		enable = true,
+	-- 		additional_vim_regex_highlighting = false,
+	-- 	},
+	-- 	--indent = { enable = true }
+	-- })
 end
 
 return M
