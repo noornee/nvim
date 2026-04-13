@@ -10,6 +10,7 @@ vim.lsp.enable({
 	"nil_ls",
 	"rust_analyzer",
 	"basedpyright",
+	"tsgo",
 })
 
 vim.diagnostic.config({
