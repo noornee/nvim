@@ -7,6 +7,13 @@ return {
 		gopls = {
 			gofumpt = true,
 			staticcheck = true,
+			directoryFilters = {
+				"-.git",
+				"-uploads",
+				"-.idea",
+				"-tmp",
+				"-logs",
+			},
 			hints = {
 				assignVariableTypes = true,
 				compositeLiteralFields = true,

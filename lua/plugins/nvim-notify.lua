@@ -11,6 +11,7 @@ M.config = function()
 	notify.setup({
 		timeout = 5000,
 		top_down = false,
+		background_colour = "#000000",
 	})
 
 	vim.notify = notify
