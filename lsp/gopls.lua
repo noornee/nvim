@@ -5,6 +5,7 @@ return {
 	root_markers = { ".git", "go.mod" },
 	settings = {
 		gopls = {
+			vulncheck = "Imports",
 			gofumpt = true,
 			staticcheck = true,
 			directoryFilters = {

@@ -43,7 +43,7 @@ M.config = function()
 			formatting.sql_formatter,
 
 			-- diagnostics
-			diagnostics.golangci_lint,
+			-- diagnostics.golangci_lint,
 		},
 	})
 end

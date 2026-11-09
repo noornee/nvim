@@ -9,7 +9,7 @@ vim.lsp.enable({
 	"lua_ls",
 	"nil_ls",
 	"rust_analyzer",
-	"basedpyright",
+	-- "basedpyright",
 	"tsgo",
 })
 
@@ -19,3 +19,7 @@ vim.diagnostic.config({
 	underline = true,
 	update_in_insert = true,
 })
+
+-- Transparent background
+vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]])
+vim.cmd([[hi NormalNC guibg=NONE ctermbg=NONE]])
