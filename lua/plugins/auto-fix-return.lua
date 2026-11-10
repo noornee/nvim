@@ -1,7 +1,6 @@
 local M = {
 	"Jay-Madden/auto-fix-return.nvim",
-	event = "VeryLazy",
-
+	ft = "go",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",
 	},

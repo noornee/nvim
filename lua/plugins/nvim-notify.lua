@@ -5,9 +5,6 @@ local M = {
 M.config = function()
 	local notify = require("notify")
 
-	-- dismiss the notification with <ESC>
-	vim.keymap.set("n", "<ESC>", ":lua require('notify').dismiss()<CR>", { silent = true })
-
 	notify.setup({
 		timeout = 5000,
 		top_down = false,
@@ -15,6 +12,10 @@ M.config = function()
 	})
 
 	vim.notify = notify
+
+	vim.keymap.set("n", "<Esc>", function()
+		notify.dismiss({ silent = true, pending = true })
+	end, { desc = "Dismiss notifications" })
 end
 
 return M

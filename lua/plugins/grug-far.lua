@@ -1,13 +1,10 @@
 local M = {
 	"MagicDuck/grug-far.nvim",
+	cmd = "GrugFar",
 }
 
 M.config = function()
-	require("grug-far").setup({
-		-- options, see Configuration section below
-		-- there are no required options atm
-		engine = "ripgrep", -- default engine, 'astgrep' can be specified
-	})
+	require("grug-far").setup({})
 end
 
 return M

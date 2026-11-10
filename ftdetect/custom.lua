@@ -1,4 +1,9 @@
-vim.api.nvim_create_autocmd("BufWinEnter", {
-	pattern = "bookmarks.txt,xresources",
-	command = "set filetype=conf",
+vim.filetype.add({
+	extension = {
+		tmpl = "html",
+	},
+	filename = {
+		["bookmarks.txt"] = "conf",
+		["xresources"] = "conf",
+	},
 })

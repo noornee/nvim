@@ -3,17 +3,18 @@ local M = {
 	dependencies = {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
-	config = true,
 }
 
 M.config = function()
 	require("mason").setup()
 	require("mason-tool-installer").setup({
-		"gomodifytags",
-		"json-to-struct",
-		"revive",
-		"staticcheck",
-		"vint",
+		ensure_installed = {
+			"gomodifytags",
+			"json-to-struct",
+			"revive",
+			"staticcheck",
+			"vint",
+		},
 	})
 end
 

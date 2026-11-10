@@ -1,7 +1,7 @@
 -- https://www.reddit.com/r/neovim/comments/1jpbc7s/disable_virtual_text_if_there_is_diagnostic_in/
 local og_virt_text
 local og_virt_line
-vim.api.nvim_create_autocmd({ "CursorMoved", "DiagnosticChanged" }, {
+vim.api.nvim_create_autocmd({ "CursorHold", "DiagnosticChanged" }, {
 	group = vim.api.nvim_create_augroup("diagnostic_only_virtlines", {}),
 	callback = function()
 		if og_virt_line == nil then

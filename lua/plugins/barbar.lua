@@ -1,5 +1,9 @@
 local M = {
 	"romgrk/barbar.nvim",
+	dependencies = {
+		"nvim-tree/nvim-web-devicons",
+	},
+	event = "BufEnter",
 	keys = {
 		{ "<A-,>", "<cmd>BufferPrevious<CR>" },
 		{ "<A-.>", "<cmd>BufferNext<CR>" },
@@ -8,7 +12,6 @@ local M = {
 		{ "<A-c>", "<cmd>BufferClose<CR>" },
 		{ "<A-f>", "<cmd>BufferPick<CR>" },
 	},
-	event = "BufEnter",
 }
 
 M.config = function()

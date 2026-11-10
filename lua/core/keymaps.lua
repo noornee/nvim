@@ -1,23 +1,24 @@
-local opts = { noremap = true, silent = true }
+local map = vim.keymap.set
+local opts = { silent = true }
 
-vim.keymap.set("n", " ", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = ";"
+map("n", " ", "<Nop>", opts)
 
--- moves the selected text when in visual mode
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts)
+-- move the selected lines
+map("v", "K", ":m '<-2<CR>gv=gv", opts)
+map("v", "J", ":m '>+1<CR>gv=gv", opts)
 
--- create an executable
-vim.keymap.set("n", "<A-x>", ":!chmod +x %<CR>", opts)
+-- make the current file executable
+map("n", "<A-x>", "<cmd>!chmod +x %<CR>", opts)
 
--- remaps <C-w> with ' (move cursor to Nth window)
-vim.keymap.set("n", "'", "<C-w>", opts)
+-- ' acts as <C-w> (window commands)
+map("n", "'", "<C-w>", opts)
 
--- better indenting
-vim.keymap.set("v", "<", "<gv", opts)
-vim.keymap.set("v", ">", ">gv", opts)
+-- keep selection when indenting
+map("v", "<", "<gv", opts)
+map("v", ">", ">gv", opts)
 
--- paste over currently selected text without yanking it
-vim.keymap.set("v", "p", '"_dp')
-vim.keymap.set("v", "P", '"_dP')
+-- paste over a selection without yanking it
+map("v", "p", '"_dp')
+map("v", "P", '"_dP')

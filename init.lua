@@ -20,6 +20,6 @@ vim.diagnostic.config({
 	update_in_insert = true,
 })
 
--- Transparent background
-vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]])
-vim.cmd([[hi NormalNC guibg=NONE ctermbg=NONE]])
+-- transparent background
+vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+vim.cmd("hi NormalNC guibg=NONE ctermbg=NONE")

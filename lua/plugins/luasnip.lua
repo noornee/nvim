@@ -5,7 +5,7 @@ local M = {
 M.config = function()
 	local ls = require("luasnip")
 
-	-- global variable
+	-- global used by the files in `snippets/`
 	LUASNIP_ENV = {
 		s = require("luasnip.nodes.snippet").S,
 		i = require("luasnip.nodes.insertNode").I,
@@ -14,41 +14,27 @@ M.config = function()
 		p = require("luasnip.extras").partial,
 	}
 
-	ls.config.set_config({
+	ls.config.setup({
 		history = true,
-		updateevents = "TextChanged,TextChangedI",
+		update_events = "TextChanged,TextChangedI",
 		enable_autosnippets = true,
 	})
 
-	-- load lua snippets
-	require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/snippets/" })
+	require("luasnip.loaders.from_lua").lazy_load({
+		paths = { vim.fn.stdpath("config") .. "/snippets" },
+	})
 
-	-- vim.keymap.set({ "i", "s" }, "<a-p>", function()
-	-- 	if ls.expand_or_jumpable() then
-	-- 		ls.expand()
-	-- 	end
-	-- end)
-
-	vim.keymap.set({ "i", "s" }, "<a-l>", function()
+	vim.keymap.set({ "i", "s" }, "<A-l>", function()
 		if ls.jumpable(1) then
 			ls.jump(1)
 		end
-	end)
-	vim.keymap.set({ "i", "s" }, "<a-h>", function()
+	end, { desc = "Snippet: next node" })
+
+	vim.keymap.set({ "i", "s" }, "<A-h>", function()
 		if ls.jumpable(-1) then
 			ls.jump(-1)
 		end
-	end)
-	-- vim.keymap.set({ "i", "s" }, "<a-l>", function()
-	-- 	if ls.choice_active() then
-	-- 		ls.change_choice(1)
-	-- 	end
-	-- end)
-	-- vim.keymap.set({ "i", "s" }, "<a-h>", function()
-	-- 	if ls.choice_active() then
-	-- 		ls.change_choice(-1)
-	-- 	end
-	-- end)
+	end, { desc = "Snippet: previous node" })
 end
 
 return M

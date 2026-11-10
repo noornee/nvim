@@ -1,12 +1,12 @@
 local M = {
 	"nvim-treesitter/nvim-treesitter",
-	cmd = "TSUpdate",
-	event = { "BufReadPost", "BufNewFile" },
 	branch = "main",
+	lazy = false, -- the `main` branch does not support lazy-loading
+	build = ":TSUpdate",
 }
 
 M.config = function()
-	local languages = {
+	require("nvim-treesitter").install({
 		"c",
 		"lua",
 		"go",
@@ -21,30 +21,16 @@ M.config = function()
 		"vimdoc",
 		"http",
 		"sql",
+	})
 
-		-- not available at the moment
-		-- "norg",
-		-- "jsonc",
-	}
-
-	require("nvim-treesitter").install(languages)
-
-	-- took inspiration from this https://github.com/MeanderingProgrammer/treesitter-modules.nvim/tree/main?tab=readme-ov-file#do-i-need-this-plugin
 	vim.api.nvim_create_autocmd("FileType", {
-		group = vim.api.nvim_create_augroup("treesitter.setup", {}),
+		group = vim.api.nvim_create_augroup("treesitter.setup", { clear = true }),
 		callback = function(args)
-			local buf = args.buf
-			local filetype = args.match
-
-			-- you need some mechanism to avoid running on buffers that do not
-			-- correspond to a language (like oil.nvim buffers), this implementation
-			-- checks if a parser exists for the current language
-			local language = vim.treesitter.language.get_lang(filetype) or filetype
-			if not vim.treesitter.language.add(language) then
-				return
+			local lang = vim.treesitter.language.get_lang(args.match) or args.match
+			-- skip buffers that have no parser (plugin UIs, plain text, …)
+			if vim.treesitter.language.add(lang) then
+				vim.treesitter.start(args.buf, lang)
 			end
-
-			vim.treesitter.start(buf, language)
 		end,
 	})
 end

@@ -1,38 +1,25 @@
 local M = {
 	"ellisonleao/gruvbox.nvim",
+	lazy = false,
+	priority = 1000, -- load before other plugins so highlights are set first
 }
 
 M.config = function()
-	local gruvbox = require("gruvbox")
-
-	-- setup must be called before loading the colorscheme
-	gruvbox.setup({
-		undercurl = true,
-		underline = true,
-		bold = true,
+	require("gruvbox").setup({
+		contrast = "hard",
 		italic = {
 			strings = false,
 			operators = false,
 			comments = true,
 			folds = true,
 		},
-		strikethrough = true,
-		invert_selection = false,
-		invert_signs = false,
-		invert_tabline = false,
-		invert_intend_guides = false,
-		inverse = true, -- invert background for search, diffs, statuslines and errors
-		contrast = "hard", -- can be "hard", "soft" or empty string
-		palette_overrides = {},
 		overrides = {
 			BufferCurrent = { bg = "#1A1A1D", fg = "#b8bb26" },
 			BufferCurrentSign = { fg = "#b8bb26" },
 		},
-		dim_inactive = false,
-		transparent_mode = false,
 	})
 
-	vim.cmd("colorscheme gruvbox")
+	vim.cmd.colorscheme("gruvbox")
 end
 
 return M

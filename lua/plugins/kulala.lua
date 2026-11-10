@@ -1,19 +1,28 @@
 local M = {
 	"mistweaverco/kulala.nvim",
-	opts = {
-		global_keymaps = false,
-	},
 	ft = { "http", "rest" },
 	keys = {
 		{
 			"<leader>kr",
-			"<cmd>lua require('kulala').run()<CR>",
+			function()
+				require("kulala").run()
+			end,
+			desc = "Kulala: run request",
 		},
 		{
 			"<leader>ka",
-			"<cmd>lua require('kulala').run_all()<CR>",
+			function()
+				require("kulala").run_all()
+			end,
+			desc = "Kulala: run all",
 		},
 	},
 }
+
+M.config = function()
+	require("kulala").setup({
+		global_keymaps = false,
+	})
+end
 
 return M
