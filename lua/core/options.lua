@@ -19,3 +19,17 @@ set.ignorecase = true -- needed for smartcase to have any effect
 set.smartcase = true
 
 set.splitright = true
+set.fillchars:append({ diff = "╱" }) -- diagonal padding instead of ------ in diffs
+
+-- Cleaner diffs: histogram aligns moved/restructured code better than the
+-- default (myers), and inline:word highlights whole changed words instead of
+-- scattered characters.
+set.diffopt = {
+	"internal",
+	"filler",
+	"closeoff",
+	"indent-heuristic",
+	"linematch:40",
+	"algorithm:histogram",
+	"inline:word",
+}

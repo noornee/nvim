@@ -16,6 +16,13 @@ M.config = function()
 		overrides = {
 			BufferCurrent = { bg = "#1A1A1D", fg = "#b8bb26" },
 			BufferCurrentSign = { fg = "#b8bb26" },
+			DiffAdd = { bg = "#202a1e" }, -- line only in the new file
+			DiffChange = { bg = "#1e231c" }, -- changed line, new side (faint)
+			DiffText = { fg = "NONE", bg = "#2f4227" }, -- the changed words, new side (fg NONE: gruvbox sets it near-black)
+			DiffDelete = { fg = "#3c3836", bg = "NONE" }, -- filler lines (the ╱ padding)
+			DiffOldLine = { bg = "#2e2022" }, -- line only in the old file
+			DiffOldChange = { bg = "#261e1f" }, -- changed line, old side (faint)
+			DiffOldText = { bg = "#4a2a2c" }, -- the changed words, old side
 		},
 	})
 
