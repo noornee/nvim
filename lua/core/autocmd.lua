@@ -15,15 +15,6 @@ autocmd("TextYankPost", {
 	end,
 })
 
--- format on save
-autocmd("BufWritePre", {
-	group = augroup("FormatOnSave"),
-	pattern = { "*.lua", "*.go", "*.html", "*.rs", "*.nix", "*.sql" },
-	callback = function(args)
-		vim.lsp.buf.format({ bufnr = args.buf, async = false })
-	end,
-})
-
 -- buffer-local LSP keymaps
 autocmd("LspAttach", {
 	group = augroup("LspMappings"),
