@@ -23,6 +23,8 @@ M.config = function()
 			DiffOldLine = { bg = "#2e2022" }, -- line only in the old file
 			DiffOldChange = { bg = "#261e1f" }, -- changed line, old side (faint)
 			DiffOldText = { bg = "#4a2a2c" }, -- the changed words, old side
+			-- Inline git blame: readable gruvbox grey instead of the near-invisible NonText
+			GitSignsCurrentLineBlame = { fg = "#665c54", italic = true },
 		},
 	})
 
