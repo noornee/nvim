@@ -9,11 +9,12 @@ M.config = function()
 	require("mason").setup()
 	require("mason-tool-installer").setup({
 		ensure_installed = {
-			"gomodifytags",
+			"gomodifytags", -- ftplugin/go.lua
 			"json-to-struct",
-			"revive",
-			"staticcheck",
-			"vint",
+			-- formatters used by conform.nvim (the rest come from Nix)
+			"goimports",
+			"prettier",
+			"sql-formatter",
 		},
 	})
 end

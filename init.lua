@@ -19,7 +19,3 @@ vim.diagnostic.config({
 	underline = true,
 	update_in_insert = true,
 })
-
--- transparent background
-vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
-vim.cmd("hi NormalNC guibg=NONE ctermbg=NONE")

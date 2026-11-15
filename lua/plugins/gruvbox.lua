@@ -14,6 +14,19 @@ M.config = function()
 			folds = true,
 		},
 		overrides = {
+			-- transparent editor background only (NormalNC links to Normal); floats, sign
+			-- column, statusline etc. keep their colors. Unlike `transparent_mode`.
+			Normal = { bg = "NONE" },
+			-- no grey strip behind the sign column (gitsigns/diagnostic signs)
+			SignColumn = { bg = "NONE" },
+			FoldColumn = { bg = "NONE" },
+			GruvboxRedSign = { bg = "NONE" },
+			GruvboxGreenSign = { bg = "NONE" },
+			GruvboxYellowSign = { bg = "NONE" },
+			GruvboxBlueSign = { bg = "NONE" },
+			GruvboxPurpleSign = { bg = "NONE" },
+			GruvboxAquaSign = { bg = "NONE" },
+			GruvboxOrangeSign = { bg = "NONE" },
 			BufferCurrent = { bg = "#1A1A1D", fg = "#b8bb26" },
 			BufferCurrentSign = { fg = "#b8bb26" },
 			DiffAdd = { bg = "#202a1e" }, -- line only in the new file

@@ -13,6 +13,11 @@ return {
 		"pnpm-lock.yaml",
 		"bun.lockb",
 		"bun.lock",
+		-- fallbacks for projects without a lockfile
+		"tsconfig.json",
+		"jsconfig.json",
+		"package.json",
+		".git",
 	},
 	settings = {
 		typescript = {

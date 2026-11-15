@@ -3,6 +3,7 @@ return {
 	dependencies = { "folke/snacks.nvim" },
 	init = function()
 		vim.api.nvim_create_autocmd("TermOpen", {
+			group = vim.api.nvim_create_augroup("ClaudeTermMaps", { clear = true }),
 			callback = function(ev)
 				-- Buffer names look like term://{cwd}//{pid}:{cmd}. Match on the command
 				-- only, so a shell opened in a path containing "claude" isn't caught.
