@@ -38,6 +38,10 @@ M.config = function()
 			DiffOldText = { bg = "#4a2a2c" }, -- the changed words, old side
 			-- Inline git blame: readable gruvbox grey instead of the near-invisible NonText
 			GitSignsCurrentLineBlame = { fg = "#665c54", italic = true },
+			-- Claude Code terminal (a snacks.nvim window): use the normal, transparent
+			-- editor background instead of gruvbox's grey float background
+			SnacksNormal = { link = "Normal" },
+			SnacksNormalNC = { link = "NormalNC" },
 		},
 	})
 
