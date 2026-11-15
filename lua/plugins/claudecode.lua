@@ -1,7 +1,25 @@
 return {
 	"coder/claudecode.nvim",
-	dependencies = { "folke/snacks.nvim" },
+	dependencies = {
+		"folke/snacks.nvim",
+		-- Colors #rrggbb codes in the Claude terminal (enabled per buffer below).
+		-- nvim-highlight-colors handles code files but skips terminal buffers.
+		{ "nvim-mini/mini.hipatterns", opts = { highlighters = {} } },
+	},
 	init = function()
+		-- Claude terminal (a snacks.nvim window): use the normal, transparent editor
+		-- background instead of the grey float background. Re-applied on every
+		-- colorscheme load, since that clears highlights.
+		local function transparent_pane()
+			vim.api.nvim_set_hl(0, "SnacksNormal", { link = "Normal" })
+			vim.api.nvim_set_hl(0, "SnacksNormalNC", { link = "NormalNC" })
+		end
+		transparent_pane()
+		vim.api.nvim_create_autocmd("ColorScheme", {
+			group = vim.api.nvim_create_augroup("ClaudePaneColors", { clear = true }),
+			callback = transparent_pane,
+		})
+
 		vim.api.nvim_create_autocmd("TermOpen", {
 			group = vim.api.nvim_create_augroup("ClaudeTermMaps", { clear = true }),
 			callback = function(ev)

@@ -82,7 +82,7 @@ local function style_diff_windows()
 		end
 	end
 end
--- DiffUpdated is the reliable trigger: `:diffthis` (used by claudecode.nvim) does not fire OptionSet.
+-- DiffUpdated is the reliable trigger: `:diffthis` (used by plugins for their diffs) does not fire OptionSet.
 autocmd({ "DiffUpdated", "OptionSet", "WinEnter", "BufWinEnter", "TabEnter" }, {
 	group = augroup("DiffSides"),
 	callback = function(ev)
