@@ -16,6 +16,7 @@ local M = {
 		{ "<leader>ff", fzf("files", { previewer = false, winopts = small }), desc = "Find files" },
 		{ "<leader>fg", fzf("live_grep"), desc = "Live grep" },
 		{ "<leader>fb", fzf("buffers"), desc = "Buffers" },
+		{ "<leader>fk", fzf("keymaps"), desc = "Keymaps" },
 		{ "<leader>b", fzf("buffers", { previewer = false, winopts = tiny }), desc = "Buffers (compact)" },
 	},
 }

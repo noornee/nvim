@@ -4,6 +4,10 @@ local M = {
 		"nvim-tree/nvim-web-devicons",
 	},
 	event = "BufEnter",
+	-- We call setup() ourselves in config, so stop barbar from also auto-running it.
+	init = function()
+		vim.g.barbar_auto_setup = false
+	end,
 	keys = {
 		{ "<A-,>", "<cmd>BufferPrevious<CR>" },
 		{ "<A-.>", "<cmd>BufferNext<CR>" },
