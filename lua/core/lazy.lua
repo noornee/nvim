@@ -21,4 +21,5 @@ end
 lazy.setup("plugins", {
 	install = { colorscheme = { "gruvbox" } },
 	change_detection = { notify = false },
+	rocks = { hererocks = true },
 })
