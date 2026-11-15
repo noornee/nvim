@@ -17,6 +17,9 @@ M.config = function()
 			mode.b.bg = "#3c3836"
 		end
 	end
+	-- Terminal mode gets its own color (gruvbox aqua), so the Claude pane is easy to spot
+	theme.terminal = vim.deepcopy(theme.normal)
+	theme.terminal.a = { bg = "#8ec07c", fg = "#282828", gui = "bold" }
 
 	require("lualine").setup({
 		options = {

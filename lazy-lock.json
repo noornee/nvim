@@ -1,7 +1,6 @@
 {
   "FTerm.nvim": { "branch": "master", "commit": "d1320892cc2ebab472935242d9d992a2c9570180" },
   "LuaSnip": { "branch": "master", "commit": "0abc8f390b278c3b4aabc4c004ac8a088b65cf24" },
-  "any-jump.vim": { "branch": "master", "commit": "f95674d9a4251ac02f452d5f1861e4422f4652c7" },
   "auto-fix-return.nvim": { "branch": "master", "commit": "986e866d4c341b3d95f7794e96f2a6da4319b047" },
   "barbar.nvim": { "branch": "master", "commit": "337ecfadb8bf005050990bf2f624dc4fc828dabd" },
   "blink.cmp": { "branch": "main", "commit": "78336bc89ee5365633bcf754d93df01678b5c08f" },
@@ -23,6 +22,7 @@
   "markdown-preview.nvim": { "branch": "master", "commit": "a923f5fc5ba36a3b17e289dc35dc17f66d0548ee" },
   "mason-tool-installer.nvim": { "branch": "main", "commit": "443f1ef8b5e6bf47045cb2217b6f748a223cf7dc" },
   "mason.nvim": { "branch": "main", "commit": "2a6940af80375532e5e9e7c1f2fc6319a1b7a69d" },
+  "mini.hipatterns": { "branch": "main", "commit": "7a79e5f000beb530ade0fa9faec70f01469dbcb3" },
   "neorg": { "branch": "main", "commit": "a09e0bb9b32e2d0406d4503ae8c1a7ad2ca83eae" },
   "nui.nvim": { "branch": "main", "commit": "10fc361835c856ba4233ef5ea135b919bf3dce97" },
   "nvim-autopairs": { "branch": "master", "commit": "3172f40c16563db871a58f20d205c710ad782311" },
