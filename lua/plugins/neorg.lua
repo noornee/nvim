@@ -19,6 +19,9 @@ M.config = function()
 		load = {
 			["core.defaults"] = {}, -- Loads default behaviour
 			["core.concealer"] = {}, -- Pretty icons for headings, lists, todos
+			-- Let Neovim find the norg parsers (site/parser first) instead of neorg loading them
+			-- from lazy-rocks, whose prebuilt ones can't load on NixOS (missing libstdc++).
+			["core.integrations.treesitter"] = { config = { configure_parsers = false } },
 			["core.dirman"] = { -- Manages Neorg workspaces
 				config = {
 					workspaces = {
